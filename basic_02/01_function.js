@@ -18,3 +18,21 @@
 //     return `${username} just logged in `
 // }
 // console.log(loginUserMessage("Manish"))
+
+// const user={
+//     username:"Manish",
+//     price:199
+// }
+
+// function handleObject(anyobject){
+//     console.log(`${anyobject.username} your price is ${anyobject.price}`)
+    
+
+// }
+// handleObject(user)
+
+const myNewArray=[200,400,100,600]
+function returnSecondValue(getArray){
+    return getArray[1]
+}
+console.log(returnSecondValue(myNewArray))
