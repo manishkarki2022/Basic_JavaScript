@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and Delete Element</title>
+</head>
+<body style="background-color: 212121; color: #ffff;"> 
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+  <script>
+    //Add new Element
+   function addLanguage(langName){
+    const li =  document.createElement("li")
+    li.innerHTML= `${langName}`
+    document.querySelector('.language').appendChild(li)
+
+   }
+   addLanguage("Python")
+   addLanguage("Java")
+
+   //Add New Element in optimize way
+   function addOptiLanguage(langName){
+     const li = document.createElement("li");
+     li.appendChild(document.createTextNode(langName))
+     document.querySelector(".language").appendChild(li)
+   }
+   addOptiLanguage("New Python")
+   addOptiLanguage("New Java")
+
+   //Edit Element
+   const secoundLanguage = document.querySelector("li:nth-child(2)")
+    // this way not so optimize way to edit the value secoundLanguage.innerHTML = "Mojo"
+
+   const newli = document.createElement("li")
+   newli.textContent("Mojo")
+   secoundLanguage.replaceWith(newli)
+
+
+  </script>
+    
+</body>
+</html>
