@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Hello World</h2>
+    <button id="clickMe">Click ME</button>
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/manishkarki2022'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',requestURL)
+    let data;
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 ){
+            data = JSON.parse(xhr.responseText)
+            console.log(xhr.responseText)
+    }}
+    xhr.send()
+    
+
+    
+    const btn = document.querySelector("#clickMe").addEventListener('click',function(){
+        const div = document.createElement('div');
+        div.setAttribute('id', 'main-container');
+        div.style.border = '1px solid #ccc';
+        div.style.padding = '20px';
+        div.style.display = 'inline-block';
+        div.style.boxShadow = '0 0 5px rgba(0, 0, 0, 0.2)';
+
+        const img = document.createElement('img');
+        img.src =`${data.avatar_url}`;
+        img.alt = `This github Image`
+
+        const p = document.createElement('p');
+        p.textContent = `${data.name}`;
+
+        div.appendChild(img);
+        div.appendChild(p);
+
+        document.body.appendChild(div);
+               
+        
+        
+    })
+   
+    
+   
+ 
+    
+</script>
+</html>
